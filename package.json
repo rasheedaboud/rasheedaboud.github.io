@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "npm run server:dev",
     "prod": "npm run lint && npm run build && npm run server:prod",
-    "build": "vite build && @powershell Remove-Item './docs' -ErrorAction Continue &&  @powershell Copy-item -Force -Recurse './dist/client'  -Destination './docs'",
+    "build": "vite build",
     "server": "node --loader ts-node/esm ./server/index.ts",
     "server:dev": "npm run server",
     "server:prod": "cross-env NODE_ENV=production npm run server",
