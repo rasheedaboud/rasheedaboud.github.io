@@ -6,7 +6,7 @@ export { Page };
 
 function Page() {
   return (
-    <section>
+    <section className='h-96'>
       <div className='grid auto-rows-max sm:grid-col-3  sm:grid-flow-row lg:grid-rows-3  lg:grid-flow-col sm:gap-4 sm:py-10 '>
         <div className='py-10  lg:row-span-1 sm:items-center'>
           <h1 className='text-2xl font-black text-pretty uppercase fade-in-left'>
