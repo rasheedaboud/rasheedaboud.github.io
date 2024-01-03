@@ -1,4 +1,4 @@
-import { GetinTouch } from "./GetinTOuch";
+import { GetinTouch } from "./GetinTouch";
 import "./index.css";
 import Workingathome from "./workingathome.webp";
 
