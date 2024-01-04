@@ -29,7 +29,26 @@ function Page() {
             Let&apos;s work together to create something awesome! 🚀
           </p>
         </div>
-        <div className='max-h-1  my-5 fade-in-right'>
+        <div className='xl:hidden xl:row-span-4 slide-in relative'>
+          <figure className='text-xs text-stone-400'>
+            <img
+              className='object-cover'
+              alt='man working at home looking to book a trip'
+              src={Workingathome}
+            ></img>
+            <figcaption>
+              <a href='https://www.freepik.com/free-vector/man-going-trip-booking-tour-online-guy-sitting-front-computer-table-looking-voyage-summer-vacation_24758680.htm#page=2&query=person%20working%20computer&position=7&from_view=keyword&track=ais&uuid=5c0d4a41-ce76-45d5-b8f7-edb57c64ddae'>
+                Image by studio4rt
+              </a>{" "}
+              on Freepik
+            </figcaption>
+          </figure>
+          <div className='w-1/2 h-1/2 absolute top-1 left-1/4 rounded-lg p-4'>
+            <GetinTouch />
+          </div>
+        </div>
+
+        <div className='hidden lg:flex max-h-1  my-5 fade-in-right'>
           <GetinTouch />
         </div>
 
