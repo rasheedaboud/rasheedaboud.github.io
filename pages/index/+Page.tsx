@@ -8,7 +8,7 @@ function Page() {
   return (
     <section className='h-96'>
       <div className='grid auto-rows-max sm:grid-col-3  sm:grid-flow-row lg:grid-rows-3  lg:grid-flow-col sm:gap-4 sm:py-5 '>
-        <div className='py-5  lg:row-span-1 sm:items-center'>
+        <div className='py-1 sm:py-5  lg:row-span-1 sm:items-center'>
           <h1 className='text-2xl font-black text-pretty uppercase fade-in-left'>
             Hey there! 👋 I&apos;m Rasheed!
           </h1>
