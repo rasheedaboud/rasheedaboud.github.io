@@ -27,8 +27,7 @@ function Page() {
         coordinating non-destructive examination (NDE) and repair activities,
         assessing the condition and estimating the remaining life of pressure
         vessels and piping systems, and overseeing construction and maintenance
-        projects across various companies in Alberta, including NWR, Capital
-        Power, CNRL, and TransAlta.
+        projects across various companies in Alberta.
       </p>
       <p className='text-gray-700 my-5'>
         My responsibilities have also included determining inspection intervals,
