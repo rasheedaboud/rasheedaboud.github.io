@@ -1,9 +1,7 @@
 import "./code.css";
-import { Field, FieldProps, Form, Formik } from "formik";
+import { Field, FieldProps, Form, Formik, FormikHelpers } from "formik";
 import * as Yup from "yup";
-import sendgrid, { MailDataRequired } from "@sendgrid/mail";
-import { navigate } from "vike/client/router";
-
+import { Email } from "../../types/Email";
 export { Page };
 
 type User = {
@@ -11,7 +9,6 @@ type User = {
   email: string;
   message: string;
 };
-sendgrid.setApiKey(import.meta.env.VITE_SENDGRID_API_KEY);
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Value is required."),
@@ -19,19 +16,29 @@ const schema = Yup.object().shape({
   email: Yup.string().email().required("Value is not a valid email."),
 });
 
-const handleSubmit = async (values: Partial<User>) => {
-  const options = {
-    from: values.email,
-    to: "rasheedaboud@gmail.com",
-    subject: `Request For Information From:${values.name}`,
-    text: values.email,
-  } as MailDataRequired;
-
-  const [result, {}] = await sendgrid.send(options);
-  console.log(result);
-  navigate("/");
-};
 function Page() {
+  const handleSubmit = async (
+    values: Partial<User>,
+    utils: FormikHelpers<User>
+  ) => {
+    try {
+      const options = {
+        from: values.email,
+        to: "rasheedaboud@gmail.com",
+        subject: `Request For Information From:${values.name}`,
+        text: values.email,
+      } as Email;
+
+      await fetch("https://sendgridblog.azurewebsites.net/api/sendEmail?", {
+        method: "POST",
+        body: JSON.stringify(options),
+      });
+
+      utils.resetForm();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <h1>
