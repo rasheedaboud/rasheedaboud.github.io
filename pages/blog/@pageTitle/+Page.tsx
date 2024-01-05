@@ -13,7 +13,7 @@ function Page() {
   const data = useBlobStorage({ title: title });
   return (
     <>
-      <section>
+      <article>
         <div style={{ minWidth: "100% !important" }} className='prose'>
           {data ? (
             <>
@@ -42,10 +42,15 @@ function Page() {
                   },
                 }}
               />
+              <div className='my-5 py-5'>
+                <a className='btn btn-neutral' href='/blogs'>
+                  Go Back
+                </a>
+              </div>
             </>
           ) : null}
         </div>
-      </section>
+      </article>
     </>
   );
 }

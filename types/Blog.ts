@@ -8,5 +8,6 @@ export type Blog = {
   readTime: string;
   tags: string;
   markdown: string;
+  thumbnail: string;
 };
 export const blogTableName = "blogs";
