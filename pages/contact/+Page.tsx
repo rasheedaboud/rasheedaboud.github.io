@@ -50,7 +50,7 @@ function Page() {
               onSubmit={handleSubmit}
               validationSchema={schema}
             >
-              {() => (
+              {({ isSubmitting }) => (
                 <Form>
                   <Field name={"name"}>
                     {({ field, meta, form }: FieldProps) => (
@@ -142,9 +142,20 @@ function Page() {
                     )}
                   </Field>
                   <div className='card-actions justify-end my-5 py-5'>
-                    <button type='submit' className='btn btn-primary'>
-                      Submit
-                    </button>
+                    {isSubmitting ? (
+                      <button
+                        type='submit'
+                        className='btn btn-primary'
+                        disabled
+                      >
+                        <span className='loading loading-spinner loading-lg'></span>
+                        Submit
+                      </button>
+                    ) : (
+                      <button type='submit' className='btn btn-primary'>
+                        Submit
+                      </button>
+                    )}
                   </div>
                 </Form>
               )}
