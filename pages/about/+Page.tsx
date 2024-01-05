@@ -158,6 +158,12 @@ function Page() {
         <li>
           <strong>CWB Level 2 Certified</strong>
         </li>
+        <li>
+          <strong>ABSA Inservice IBPV</strong>
+        </li>
+        <li>
+          <strong>Diploma Chemical Technology</strong>
+        </li>
       </ul>
       <h2 className='text-xl font-black text-pretty uppercase'>
         Connect With Me
