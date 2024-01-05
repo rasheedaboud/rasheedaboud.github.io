@@ -59,6 +59,7 @@ function Page() {
                         </div>
                         <div className='font-bold uppercase'>{blog.author}</div>
                         <div className='uppercase'>{blog.readTime} read</div>
+                        <div className='uppercase'>{blog.date}</div>
                       </div>
                       <div className='block'>
                         {blog.tags.split(",").map((tag) => (
