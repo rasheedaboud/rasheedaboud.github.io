@@ -26,7 +26,7 @@ function Page() {
         from: values.email,
         to: "rasheedaboud@gmail.com",
         subject: `Request For Information From:${values.name}`,
-        text: values.email,
+        text: values.message,
       } as Email;
 
       await fetch("https://sendgridblog.azurewebsites.net/api/sendEmail?", {
