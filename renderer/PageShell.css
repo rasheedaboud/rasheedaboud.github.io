@@ -7,8 +7,3 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.125rem;
 }
-@layer base {
-  h1 {
-    @apply mt-8 text-2xl;
-  }
-}

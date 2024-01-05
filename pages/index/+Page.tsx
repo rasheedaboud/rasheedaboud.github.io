@@ -16,7 +16,7 @@ function Page() {
             </h1>
           </div>
 
-          <div className='py-5 lg:row-span-2 text-slate-700 font-semibold fade-in-right'>
+          <div className='leading-tight py-5 lg:row-span-2 text-slate-700 font-semibold fade-in-right'>
             <p>
               I&apos;m an experienced developer with a passion for creating
               innovative solutions. With a strong background in F#, C#,
@@ -51,7 +51,7 @@ function Page() {
             </div>
           </div>
 
-          <div className='hidden lg:flex max-h-1  my-5 fade-in-right'>
+          <div className='hidden lg:flex max-h-1  my-3 fade-in-right'>
             <GetinTouch />
           </div>
 
