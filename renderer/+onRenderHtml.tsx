@@ -32,6 +32,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (
     <html data-theme="light" lang="en">
       <head>
         <meta charset="UTF-8" />
+        <meta name="google-site-verification" content="tasigl22802n6H-QTcOM1o96ZEKow4vzIU36DCZwO4g" />
         <meta http-equiv='cache-control' content='no-cache'> 
         <meta http-equiv='expires' content='0'> 
         <meta http-equiv='pragma' content='no-cache'>
