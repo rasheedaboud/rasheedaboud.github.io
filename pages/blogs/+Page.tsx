@@ -30,6 +30,7 @@ function Page() {
                       </div>
                       <div className='font-bold uppercase'>{blog.author}</div>
                       <div className='uppercase'>{blog.readTime} read</div>
+                      <div className='uppercase'>{blog.date}</div>
                     </div>
                     <div className='card-body  max-w-sm'>
                       <h2 className='card-title'>{blog.title}</h2>

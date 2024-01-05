@@ -8,7 +8,7 @@ export { Page };
 function Page() {
   return (
     <>
-      <section className='h-96'>
+      <section>
         <div className='grid auto-rows-max sm:grid-col-3  sm:grid-flow-row lg:grid-rows-3  lg:grid-flow-col sm:gap-4 sm:py-5 '>
           <div className='py-1 sm:py-5  lg:row-span-1 sm:items-center'>
             <h1 className='text-2xl font-black text-pretty uppercase fade-in-left'>
@@ -33,7 +33,7 @@ function Page() {
             </p>
           </div>
           <div className='xl:hidden xl:row-span-4 slide-in relative'>
-            <figure className='text-xs text-stone-400'>
+            <figure className='text-xs text-stone-400 mt-10'>
               <img
                 className='object-cover'
                 alt='man working at home looking to book a trip'
@@ -46,7 +46,7 @@ function Page() {
                 on Freepik
               </figcaption>
             </figure>
-            <div className='w-1/2 h-1/2 absolute top-1 left-1/4 rounded-lg p-4'>
+            <div className='w-1/2 h-1/2 absolute top-0 left-1/4 rounded-lg p-4'>
               <GetinTouch />
             </div>
           </div>
