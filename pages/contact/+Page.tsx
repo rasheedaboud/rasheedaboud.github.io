@@ -2,6 +2,7 @@ import "./code.css";
 import { Field, FieldProps, Form, Formik } from "formik";
 import * as Yup from "yup";
 import sendgrid, { MailDataRequired } from "@sendgrid/mail";
+import { navigate } from "vike/client/router";
 
 export { Page };
 
@@ -23,10 +24,12 @@ const handleSubmit = async (values: Partial<User>) => {
     from: values.email,
     to: "rasheedaboud@gmail.com",
     subject: `Request For Information From:${values.name}`,
-    html: values.email,
+    text: values.email,
   } as MailDataRequired;
 
-  sendgrid.send(options);
+  const [result, {}] = await sendgrid.send(options);
+  console.log(result);
+  navigate("/");
 };
 function Page() {
   return (

@@ -21,8 +21,7 @@ jobs:
 
       - name: Build Vike
         run: pnpm run build
-        env:
-          VITE_SENDGRID_API_KEY: ${{ secrets.VITE_SENDGRID_API_KEY }}
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
