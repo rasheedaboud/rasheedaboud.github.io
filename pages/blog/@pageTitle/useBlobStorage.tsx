@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { navigate } from "vike/client/router";
-import { readBlog } from "../../types/AzureStorage";
-import { Blog } from "../../types/Blog";
+import { readBlog } from "../../../types/AzureStorage";
+import { Blog } from "../../../types/Blog";
 
 export const useBlobStorage = ({ title }: { title: string | undefined }) => {
   const [blog, setBlogs] = useState<Blog | null>(null);
@@ -15,7 +15,7 @@ export const useBlobStorage = ({ title }: { title: string | undefined }) => {
         // }
         setBlogs(data);
       } else {
-        navigate("/blogs");
+        //navigate("/blogs");
       }
     };
     loadData();

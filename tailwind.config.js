@@ -5,5 +5,8 @@ export const content = [
 ];
 export const theme = {
   extend: {},
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 };
-export const plugins = [require("@tailwindcss/typography")];
+export const plugins = [require("@tailwindcss/typography"), require("daisyui")];

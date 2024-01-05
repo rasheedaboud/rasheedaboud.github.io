@@ -3,12 +3,12 @@ import "./Page.css";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { usePageContext } from "../../renderer/usePageContext";
+import { usePageContext } from "../../../renderer/usePageContext";
 
 export { Page };
 function Page() {
   const pageContext = usePageContext();
-  const title = pageContext.routeParams?.blogtitle;
+  const title = pageContext.routeParams?.pageTitle;
 
   const data = useBlobStorage({ title: title });
   return (

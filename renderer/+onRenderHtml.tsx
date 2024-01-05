@@ -29,7 +29,7 @@ const onRenderHtml: OnRenderHtmlAsync = async (
     "Hey there! 👋 I'm Rasheed, an experienced developer with a passion for creating innovative solutions.  With a strong background in F#, C#, JavaScript (TypeScript), and more, I bring a wealth of knowledge to the table.";
 
   const documentHtml = escapeInject`<!DOCTYPE html>
-    <html lang="en">
+    <html data-theme="light" lang="en">
       <head>
         <meta charset="UTF-8" />
         <meta http-equiv='cache-control' content='no-cache'> 
