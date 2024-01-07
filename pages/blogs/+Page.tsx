@@ -124,7 +124,11 @@ function Page() {
                   <div key={blog.title}>
                     <div className=' sm:hidden card grid-rows-3 grid-flow-col bg-base-100 shadow-xl my-5'>
                       <figure className='max-w-xs px-3 py-2 min-w-xs'>
-                        <img src={blog.thumbnail} alt='Movie' />
+                        <img
+                          style={{ maxWidth: "500px", maxHeight: "600px;" }}
+                          src={blog.thumbnail}
+                          alt='Movie'
+                        />
                       </figure>
                       <div className='block px-5 py-5'>
                         {blog.tags.split(",").map((tag) => (
@@ -158,7 +162,11 @@ function Page() {
                     </div>
                     <div className='hidden sm:flex card card-side bg-base-100  shadow-xl my-5'>
                       <figure className='max-w-xs px-3 py-2 min-w-xs'>
-                        <img src={blog.thumbnail} alt='Movie' />
+                        <img
+                          style={{ maxWidth: "500px", maxHeight: "600px;" }}
+                          src={blog.thumbnail}
+                          alt='Movie'
+                        />
                       </figure>
                       <div className='card-body '>
                         <h2 className='card-title'>{blog.title}</h2>
