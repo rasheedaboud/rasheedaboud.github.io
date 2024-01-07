@@ -31,7 +31,8 @@ function Page() {
       blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
     );
     if (data) {
-      setTags([...tags, tag]);
+      const filterTags = new Set(tags).add(tag);
+      setTags([...filterTags]);
       setData(data);
     }
   };
@@ -98,10 +99,11 @@ function Page() {
               ? tags.map((tag) => {
                   return (
                     <button
-                      className='badge badge-primary badge-md mx-1'
+                      className='badge badge-primary badge-lg mx-1'
                       onClick={() => removeTag(tag)}
                     >
-                      {tag} {" X"}
+                      {tag}
+                      <i className='fa-solid fa-rectangle-xmark ms-3'></i>
                     </button>
                   );
                 })
@@ -126,7 +128,9 @@ function Page() {
                       </figure>
                       <div className='block px-5 py-5'>
                         {blog.tags.split(",").map((tag) => (
-                          <div className='badge badge-primary mx-1'>{tag}</div>
+                          <div className='badge badge-primary badge-lg mx-1'>
+                            {tag}
+                          </div>
                         ))}
                       </div>
                       <div className='grid grid-rows-3 grid-flow-col px-5 py-1'>
@@ -174,7 +178,7 @@ function Page() {
                         <div className='block'>
                           {blog.tags.split(",").map((tag) => (
                             <button
-                              className='badge badge-primary badge-md mx-1'
+                              className='badge badge-primary badge-lg mx-1'
                               onClick={() => handleTagClick(tag)}
                             >
                               {tag}
