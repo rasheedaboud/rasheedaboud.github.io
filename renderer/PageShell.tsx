@@ -28,7 +28,7 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <NavBar />
-      <div style={{ height: "100svh" }} className='container mx-auto px-4 py-1'>
+      <div style={{ height: "100%" }} className='container mx-auto px-4 py-1'>
         {children}
       </div>
     </div>
