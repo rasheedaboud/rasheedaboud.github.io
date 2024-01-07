@@ -5,11 +5,20 @@ import { Blog } from "../../types/Blog";
 
 export { Page };
 
+const filterByTag = (tag: string, blogs: Blog[] | undefined) => {
+  if (!blogs) return [];
+  return blogs
+    .filter((blog) =>
+      blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
+    )
+    .flatMap((item) => item);
+};
+
 function Page() {
   const blogs = useTableStorage();
 
   const [data, setData] = useState(blogs);
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>();
 
   useEffect(() => {
     setData(blogs);
@@ -21,15 +30,17 @@ function Page() {
     const data = blogs?.filter((blog) =>
       blog.title.toUpperCase().includes(value.toLocaleUpperCase().trim())
     );
-    if (data) {
+
+    if (tags) {
+      const tagFilter = tags.flatMap((tag) => filterByTag(tag, data));
+      setData(tagFilter);
+    } else if (data) {
       setData(data);
     }
   };
 
   const handleTagClick = (tag: string) => {
-    const data = blogs?.filter((blog) =>
-      blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
-    );
+    const data = filterByTag(tag, blogs);
     if (data) {
       const filterTags = new Set(tags).add(tag);
       setTags([...filterTags]);
@@ -37,11 +48,12 @@ function Page() {
     }
   };
   const removeTag = (tag: string) => {
-    const filter = tags.filter((curr) => curr !== tag);
+    const filter = tags?.filter((curr) => curr !== tag);
     setTags(filter);
   };
 
   useEffect(() => {
+    if (!tags) return;
     let result: Set<Blog> = new Set();
     for (let index = 0; index < tags.length; index++) {
       const tag = tags[index];
