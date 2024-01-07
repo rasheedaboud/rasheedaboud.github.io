@@ -3,11 +3,11 @@ import { Blog } from "../../types/Blog";
 import { readBlogs } from "../../types/AzureStorage";
 
 export const useTableStorage = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogs, setBlogs] = useState<Blog[] | undefined>();
 
   useEffect(() => {
     const loadData = async () => {
-      const data = (await readBlogs()) ?? [];
+      const data = await readBlogs();
 
       setBlogs(data);
     };

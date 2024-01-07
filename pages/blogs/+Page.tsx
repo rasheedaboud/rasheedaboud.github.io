@@ -18,7 +18,7 @@ function Page() {
   const handleSearch = (evt: React.FocusEvent<HTMLInputElement, Element>) => {
     evt.preventDefault();
     const value = evt.target.value;
-    const data = blogs.filter((blog) =>
+    const data = blogs?.filter((blog) =>
       blog.title.toUpperCase().includes(value.toLocaleUpperCase().trim())
     );
     if (data) {
@@ -27,7 +27,7 @@ function Page() {
   };
 
   const handleTagClick = (tag: string) => {
-    const data = blogs.filter((blog) =>
+    const data = blogs?.filter((blog) =>
       blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
     );
     if (data) {
@@ -44,7 +44,7 @@ function Page() {
     let result: Set<Blog> = new Set();
     for (let index = 0; index < tags.length; index++) {
       const tag = tags[index];
-      const data = blogs.filter((blog) =>
+      const data = blogs?.filter((blog) =>
         blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
       );
       if (data) {
@@ -60,11 +60,7 @@ function Page() {
 
   return (
     <>
-      {data.length <= 0 ? (
-        <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
-          <div className='border-t-transparent border-solid animate-spin  rounded-full border-black border-8 h-64 w-64'></div>
-        </div>
-      ) : (
+      {data ? (
         <div className='mb-3 mt-10'>
           <div className='relative mb-4 flex w-full flex-wrap items-stretch'>
             <input
@@ -111,6 +107,10 @@ function Page() {
                 })
               : null}
           </div>
+        </div>
+      ) : (
+        <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
+          <div className='border-t-transparent border-solid animate-spin  rounded-full border-black border-8 h-32 w-32'></div>
         </div>
       )}
 
@@ -194,7 +194,7 @@ function Page() {
               );
             })
           ) : (
-            <div>NO DATA</div>
+            <div className='card'> --- NO DATA ---</div>
           )}
         </div>
       </section>
