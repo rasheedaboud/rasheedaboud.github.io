@@ -14,11 +14,19 @@ const filterByTag = (tag: string, blogs: Blog[] | undefined) => {
     .flatMap((item) => item);
 };
 
+const filterByTitle = (title: string, blogs: Blog[] | undefined) => {
+  if (!blogs) return [];
+  return blogs?.filter((blog) =>
+    blog.title.toUpperCase().includes(title.toLocaleUpperCase().trim())
+  );
+};
+
 function Page() {
   const blogs = useTableStorage();
 
   const [data, setData] = useState(blogs);
   const [tags, setTags] = useState<string[]>();
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     setData(blogs);
@@ -27,25 +35,11 @@ function Page() {
   const handleSearch = (evt: React.FocusEvent<HTMLInputElement, Element>) => {
     evt.preventDefault();
     const value = evt.target.value;
-    const data = blogs?.filter((blog) =>
-      blog.title.toUpperCase().includes(value.toLocaleUpperCase().trim())
-    );
-
-    if (tags) {
-      const tagFilter = tags.flatMap((tag) => filterByTag(tag, data));
-      setData(tagFilter);
-    } else if (data) {
-      setData(data);
-    }
+    setTitle(value);
   };
 
   const handleTagClick = (tag: string) => {
-    const data = filterByTag(tag, blogs);
-    if (data) {
-      const filterTags = new Set(tags).add(tag);
-      setTags([...filterTags]);
-      setData(data);
-    }
+    setTags([...new Set(tags).add(tag)]);
   };
   const removeTag = (tag: string) => {
     const filter = tags?.filter((curr) => curr !== tag);
@@ -53,23 +47,20 @@ function Page() {
   };
 
   useEffect(() => {
-    if (!tags) return;
-    let result: Set<Blog> = new Set();
-    for (let index = 0; index < tags.length; index++) {
-      const tag = tags[index];
-      const data = blogs?.filter((blog) =>
-        blog.tags.toUpperCase().includes(tag.toLocaleUpperCase().trim())
-      );
-      if (data) {
-        data.map((blog) => result.add(blog));
-      }
-    }
-    if ([...result].length >= 1) {
-      setData([...result]);
+    const result: Set<Blog> = new Set();
+
+    tags?.map((tag) => {
+      filterByTag(tag, blogs).map((blog) => result.add(blog));
+    });
+
+    if (title === "" && result.size > 0) setData([...result]);
+    else if (title === "" && result.size <= 0) setData(blogs);
+    else if (result.size > 0 && title != "") {
+      setData(filterByTitle(title, [...result]));
     } else {
-      setData(blogs);
+      setData(filterByTitle(title, blogs));
     }
-  }, [tags]);
+  }, [tags, title]);
 
   return (
     <>
@@ -81,6 +72,7 @@ function Page() {
               className='relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary'
               placeholder='Search'
               aria-label='Search'
+              value={title}
               aria-describedby='button-addon1'
               onChange={handleSearch}
             />
@@ -91,6 +83,7 @@ function Page() {
               id='button-addon1'
               data-te-ripple-init
               data-te-ripple-color='light'
+              onClick={(evt) => setTitle("")}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -137,7 +130,7 @@ function Page() {
                     <div className=' sm:hidden card grid-rows-3 grid-flow-col bg-base-100 shadow-xl my-5'>
                       <figure className='max-w-xs px-3 py-2 min-w-xs'>
                         <img
-                          style={{ maxWidth: "500px", maxHeight: "600px;" }}
+                          style={{ maxWidth: "500px", maxHeight: "600px" }}
                           src={blog.thumbnail}
                           alt='Movie'
                         />
@@ -175,7 +168,7 @@ function Page() {
                     <div className='hidden sm:flex card card-side bg-base-100  shadow-xl my-5'>
                       <figure className='max-w-xs px-3 py-2 min-w-xs'>
                         <img
-                          style={{ maxWidth: "500px", maxHeight: "600px;" }}
+                          style={{ maxWidth: "500px", maxHeight: "600px" }}
                           src={blog.thumbnail}
                           alt='Movie'
                         />
