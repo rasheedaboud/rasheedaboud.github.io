@@ -2,7 +2,7 @@ export { onBeforePrerenderStart };
 import { readBlogs } from "../../../types/AzureStorage";
 
 async function onBeforePrerenderStart() {
-  const movies = await readBlogs();
-  const moviePageURLs = movies.map((blog) => "/blog/" + blog.title);
-  return moviePageURLs;
+  const blogs = await readBlogs();
+  const blogPageURLs = blogs.map((blog) => "/blog/" + blog.title);
+  return blogPageURLs;
 }

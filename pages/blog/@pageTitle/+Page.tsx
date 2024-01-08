@@ -3,8 +3,40 @@ import "./Page.css";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { usePageContext } from "../../../renderer/usePageContext";
+import { useState } from "react";
 
+const CodeCopyBtn = ({ children }: { children: any }) => {
+  const [copyOk, setCopyOk] = useState(false);
+  const icon = copyOk ? "fa-square-check" : "fa-copy";
+  const copy = copyOk ? "Copied" : "Copy";
+  const handleClick = () => {
+    navigator.clipboard.writeText(children?.props?.children);
+
+    setCopyOk(true);
+    setTimeout(() => {
+      setCopyOk(false);
+    }, 500);
+  };
+
+  return (
+    <div className='absolute -top-1  right-5 h-10 w-10 m-5'>
+      <button className={"btn btn-xs btn-active"} onClick={handleClick}>
+        <span className=''>
+          <i className={`fa-solid ${icon}`}> {copy}</i>
+        </span>
+      </button>
+    </div>
+  );
+};
+
+const Pre = ({ node, children }: { node: any; children: any }) => (
+  <pre className='mb-3 relative box-shadow shadow-2xl'>
+    <CodeCopyBtn>{children}</CodeCopyBtn>
+    {children}
+  </pre>
+);
 export { Page };
 function Page() {
   const pageContext = usePageContext();
@@ -24,12 +56,14 @@ function Page() {
                 children={data.markdown}
                 remarkPlugins={[remarkGfm]}
                 components={{
+                  pre: Pre,
                   code(props) {
                     const { children, className, node, ...rest } = props;
                     const match = /language-(\w+)/.exec(className || "");
                     return match ? (
                       <SyntaxHighlighter
                         PreTag='div'
+                        style={vscDarkPlus}
                         children={String(children).replace(/\n$/, "")}
                         language={match[1]}
                         showInlineLineNumbers={true}
