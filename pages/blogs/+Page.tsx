@@ -2,7 +2,7 @@ import { useTableStorage } from "./useTableStorage";
 import "./Page.css";
 import { useEffect, useState } from "react";
 import { Blog } from "../../types/Blog";
-
+import { useMediaQuery } from "react-responsive";
 export { Page };
 
 const filterByTag = (tag: string, blogs: Blog[] | undefined) => {
@@ -23,6 +23,7 @@ const filterByTitle = (title: string, blogs: Blog[] | undefined) => {
 
 function Page() {
   const blogs = useTableStorage();
+  const isSmallScreen = useMediaQuery({ maxWidth: 600 });
 
   const [data, setData] = useState(blogs);
   const [tags, setTags] = useState<string[]>();
@@ -128,18 +129,33 @@ function Page() {
                 return (
                   <div key={blog.title}>
                     <div className=' sm:hidden card grid-rows-3 grid-flow-col bg-base-100 shadow-xl my-5'>
-                      <figure className='max-w-xs px-3 py-2 min-w-xs'>
-                        <img
-                          style={{ maxWidth: "500px", maxHeight: "600px" }}
-                          src={blog.thumbnail}
-                          alt='Movie'
-                        />
-                      </figure>
+                      <div className='flex justify-center items-center'>
+                        {" "}
+                        <figure className='max-w-xs px-3 py-2 min-w-xs '>
+                          {isSmallScreen ? (
+                            <img
+                              style={{ maxWidth: "300px", maxHeight: "300px" }}
+                              src={blog.thumbnail}
+                              alt='Movie'
+                            />
+                          ) : (
+                            <img
+                              style={{ maxWidth: "500px", maxHeight: "600px" }}
+                              src={blog.thumbnail}
+                              alt='Movie'
+                            />
+                          )}
+                        </figure>
+                      </div>
+
                       <div className='block px-5 py-5'>
                         {blog.tags.split(",").map((tag) => (
-                          <div className='badge badge-primary badge-lg mx-1'>
+                          <button
+                            className='badge badge-primary badge-lg mx-1'
+                            onClick={() => handleTagClick(tag)}
+                          >
                             {tag}
-                          </div>
+                          </button>
                         ))}
                       </div>
                       <div className='grid grid-rows-3 grid-flow-col px-5 py-1'>
