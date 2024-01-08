@@ -6,3 +6,4 @@ https://rasheedaboud.github.io/blog/Part 1 - React App Using Fable and Feliz
 https://rasheedaboud.github.io/blog/Part 2 - Feliz Environment Variables
 https://rasheedaboud.github.io/blog/Part 3- Building UI with Feliz.DaisyUI
 https://rasheedaboud.github.io/blog/Part 4-Sate Management
+https://rasheedaboud.github.io/blog/Part 5 -Using Fetch APIs
