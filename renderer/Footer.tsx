@@ -1,5 +1,5 @@
 import Twitter from "./twitter.webp";
-
+import Github from "./github.svg";
 export const Footer = () => {
   return (
     <footer className='footer  p-10 bg-black text-neutral-content'>
@@ -69,6 +69,9 @@ export const Footer = () => {
             >
               <path d='M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z'></path>
             </svg>
+          </a>
+          <a href='https://github.com/rasheedaboud'>
+            <img style={{ maxWidth: "25px", maxHeight: "25px" }} src={Github} />
           </a>
         </div>
       </nav>

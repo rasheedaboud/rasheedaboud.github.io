@@ -1,3 +1,4 @@
+import { Banner } from "./Banner";
 import { GetinTouch } from "./GetinTouch";
 import "./index.css";
 
@@ -210,6 +211,7 @@ function Page() {
           </div>
         </div>
       </section>
+      <Banner />
     </>
   );
 }
