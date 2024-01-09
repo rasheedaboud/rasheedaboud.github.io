@@ -2,7 +2,7 @@ import Twitter from "./twitter.webp";
 
 export const Footer = () => {
   return (
-    <footer className='footer p-10 bg-black text-neutral-content'>
+    <footer className='footer  p-10 bg-black text-neutral-content'>
       <aside>
         <svg
           className='me-auto'

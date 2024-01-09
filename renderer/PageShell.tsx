@@ -27,13 +27,11 @@ function PageShell({
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <main className='min-h-screen'>
       <NavBar />
-      <div style={{ height: "100%" }} className='container mx-auto px-4 py-1'>
-        {children}
-      </div>
+      <div className='container mx-auto px-4 py-1'>{children}</div>
       <Footer />
-    </div>
+    </main>
   );
 }
 

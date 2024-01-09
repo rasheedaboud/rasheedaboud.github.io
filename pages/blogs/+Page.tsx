@@ -64,7 +64,7 @@ function Page() {
   }, [tags, title]);
 
   return (
-    <>
+    <div className='min-h-svh'>
       {data ? (
         <div className='mb-3 mt-10'>
           <div className='relative mb-4 flex w-full flex-wrap items-stretch'>
@@ -117,7 +117,7 @@ function Page() {
           </div>
         </div>
       ) : (
-        <div className='absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
+        <div className=' absolute right-1/2 bottom-1/2  transform translate-x-1/2 translate-y-1/2 '>
           <div className='border-t-transparent border-solid animate-spin  rounded-full border-black border-8 h-32 w-32'></div>
         </div>
       )}
@@ -231,6 +231,6 @@ function Page() {
             : null}
         </div>
       </section>
-    </>
+    </div>
   );
 }
