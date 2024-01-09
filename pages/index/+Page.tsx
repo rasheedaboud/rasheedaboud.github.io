@@ -3,6 +3,7 @@ import { GetinTouch } from "./GetinTouch";
 import "./index.css";
 
 import Workingathome from "./workingathome.webp";
+import FelizSyncfusion from "./fsharp_syncfusion.webp";
 
 export { Page };
 
@@ -94,7 +95,7 @@ function Page() {
           </div>
         </div>
         {/* Feliz.Syncfusion */}
-        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5'>
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 scale-95 hover:scale-110'>
           <div className='card-body'>
             <h2 className='card-title uppercase'>Feliz.Syncfusion!</h2>
             <p className='text-gray-400'>
@@ -110,6 +111,7 @@ function Page() {
             </p>
             <div className='card-actions justify-end'>
               <a
+                aria-label='Learn More'
                 href='https://github.com/rasheedaboud/Feliz.Syncfusion'
                 className='btn btn-primary'
               >
@@ -118,9 +120,16 @@ function Page() {
             </div>
           </div>
         </div>
-        {/* Feliz.Syncfusion */}
-        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5'>
-          <div className='card-body'>
+
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 scale-95 hover:scale-110'>
+          {/* <figure className='hidden sm:block max-w-xs px-3 py-2 min-w-xs '>
+            <img
+              style={{ minHeight: "100px", minWidth: "100px" }}
+              src={FelizSyncfusion}
+            />
+          </figure> */}
+
+          <div className='ms-auto card-body sm:w-3/4'>
             <h2 className='card-title uppercase'>Feliz.React.Msal!</h2>
             <p className='text-gray-400'>
               Secure your F# web apps with confidence using Feliz.React.Msal.
@@ -135,6 +144,7 @@ function Page() {
             </p>
             <div className='card-actions justify-end'>
               <a
+                aria-label='Learn More'
                 href='https://github.com/rasheedaboud/Feliz.React.Msal'
                 className='btn btn-primary'
               >
@@ -143,7 +153,7 @@ function Page() {
             </div>
           </div>
         </div>
-        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5'>
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 scale-95 hover:scale-110'>
           <div className='card-body'>
             <h2 className='card-title uppercase'>ARMM Weld Tracking!</h2>
             <p className='text-gray-400'>
@@ -158,6 +168,7 @@ function Page() {
             </p>
             <div className='card-actions justify-end'>
               <a
+                aria-label='Learn More'
                 href='https://www.armm-services.com/News/Blog/WeldTracking.md'
                 className='btn btn-primary'
               >
@@ -166,7 +177,7 @@ function Page() {
             </div>
           </div>
         </div>
-        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5'>
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 scale-95 hover:scale-110'>
           <div className='card-body'>
             <h2 className='card-title uppercase'>VisionsTools!</h2>
             <p className='text-gray-400'>
@@ -181,6 +192,7 @@ function Page() {
             </p>
             <div className='card-actions justify-end'>
               <a
+                aria-label='Learn More'
                 href='https://github.com/rasheedaboud/VisionsTools'
                 className='btn btn-primary'
               >
@@ -189,7 +201,7 @@ function Page() {
             </div>
           </div>
         </div>
-        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5'>
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 scale-95 hover:scale-110'>
           <div className='card-body'>
             <h2 className='card-title uppercase'>Savy Savers!</h2>
             <p className='text-gray-400'>
@@ -204,7 +216,11 @@ function Page() {
               shopping.
             </p>
             <div className='card-actions justify-end'>
-              <a href='https://www.savysavers.ca/' className='btn btn-primary'>
+              <a
+                aria-label='Learn More'
+                href='https://www.savysavers.ca/'
+                className='btn btn-primary'
+              >
                 Learn More
               </a>
             </div>
