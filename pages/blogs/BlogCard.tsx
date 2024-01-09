@@ -1,6 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import { Blog } from "../../types/Blog";
+import { Tag } from "./Tag";
 
 export const BlogCard = ({
   blog,
@@ -36,13 +37,7 @@ export const BlogCard = ({
 
           <div className='block px-5 py-5'>
             {blog.tags.split(",").map((tag) => (
-              <button
-                key={tag}
-                className='badge badge-primary badge-lg mx-1'
-                onClick={() => handleTagClick(tag)}
-              >
-                {tag}
-              </button>
+              <Tag handleTagClick={handleTagClick} tag={tag} key={tag} />
             ))}
           </div>
           <div className='grid grid-rows-3 grid-flow-col px-5 py-1'>
@@ -88,13 +83,7 @@ export const BlogCard = ({
             </div>
             <div className='block'>
               {blog.tags.split(",").map((tag) => (
-                <button
-                  key={tag}
-                  className='badge badge-primary badge-lg mx-1'
-                  onClick={() => handleTagClick(tag)}
-                >
-                  {tag}
-                </button>
+                <Tag handleTagClick={handleTagClick} tag={tag} key={tag} />
               ))}
             </div>
             <p className=''>{blog.description}</p>
