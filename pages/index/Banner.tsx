@@ -27,7 +27,7 @@ export const Banner = () => {
                     <span className='sr-only'>Discount</span>
                   </span>
                   <span>
-                    All things programming{" "}
+                    Blog about all things programming{" "}
                     <a
                       href='/blogs'
                       className='flex items-center ms-0 text-sm font-medium text-blue-600 md:ms-1 md:inline-flex dark:text-blue-500 hover:underline'
@@ -57,6 +57,7 @@ export const Banner = () => {
                   data-dismiss-target='#bottom-banner'
                   type='button'
                   className='flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white'
+                  onClick={() => SetShowBanner(false)}
                 >
                   <svg
                     className='w-3 h-3'
