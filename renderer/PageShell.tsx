@@ -3,6 +3,7 @@ import { PageContextProvider } from "./usePageContext";
 import type { PageContext } from "vike/types";
 import "./PageShell.css";
 import { NavBar } from "./NavBar";
+import { Footer } from "./Footer";
 
 export { PageShell };
 
@@ -31,6 +32,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <div style={{ height: "100%" }} className='container mx-auto px-4 py-1'>
         {children}
       </div>
+      <Footer />
     </div>
   );
 }
