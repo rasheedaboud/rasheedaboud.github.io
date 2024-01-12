@@ -3,6 +3,11 @@ import { useMediaQuery } from "react-responsive";
 import { Blog } from "../../types/Blog";
 import { Tag } from "./Tag";
 
+function canonicalize(input: string): string {
+  if(!input) return '';
+  return input.toLowerCase().replace(/\s/g, '-');
+}
+
 export const BlogCard = ({
   blog,
   handleTagClick,
@@ -88,7 +93,7 @@ export const BlogCard = ({
             </div>
             <p className=''>{blog.description}</p>
             <div className='card-actions justify-end'>
-              <a href={`/blog/${blog.title}`} className='btn btn-primary'>
+              <a href={`/blog/${canonicalize(blog.title)}`} className='btn btn-primary'>
                 Read more -&gt;
               </a>
             </div>
