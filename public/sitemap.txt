@@ -1,9 +1,8 @@
-https://rasheedaboud.github.io
-https://rasheedaboud.github.io/contact
-https://rasheedaboud.github.io/about
-https://rasheedaboud.github.io/blogs
-https://rasheedaboud.github.io/blog/Part 1 - React App Using Fable and Feliz
-https://rasheedaboud.github.io/blog/Part 2 - Feliz Environment Variables
-https://rasheedaboud.github.io/blog/Part 3- Building UI with Feliz.DaisyUI
-https://rasheedaboud.github.io/blog/Part 4-Sate Management
-https://rasheedaboud.github.io/blog/Part 5 -Using Fetch APIs
+https://rasheedaboud.github.io/
+https://rasheedaboud.github.io/about/
+https://rasheedaboud.github.io/blogs/
+https://rasheedaboud.github.io/blog/part-1-building-a-react-app-using-fable-and-feliz/
+https://rasheedaboud.github.io/blog/part-2-feliz-environment-variables/
+https://rasheedaboud.github.io/blog/part-3-building-ui-with-feliz.daisyui/
+https://rasheedaboud.github.io/blog/part-4-state-management-in-feliz/
+https://rasheedaboud.github.io/blog/part-5-using-fetch-apis-in-fable/
