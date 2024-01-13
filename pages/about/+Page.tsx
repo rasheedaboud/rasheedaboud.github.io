@@ -20,9 +20,9 @@ function Page() {
       </p>
       <h2 className='text-xl font-black text-pretty uppercase'>Background</h2>
       <p className='text-gray-700 my-5'>
-        Throughout my career, I've gained extensive experience in the field of{" "}
-        <strong>asset integrity</strong>, quality assurance, and inspection of
-        stationary pressure equipment. From an Inservice Inspector to a{" "}
+        Throughout my career, I&#39;ve gained extensive experience in the field
+        of <strong>asset integrity</strong>, quality assurance, and inspection
+        of stationary pressure equipment. From an Inservice Inspector to a{" "}
         <strong>Chief Inspector</strong>, I have been deeply involved in
         coordinating non-destructive examination (NDE) and repair activities,
         assessing the condition and estimating the remaining life of pressure
@@ -36,12 +36,12 @@ function Page() {
         interfacing with the Alberta Boilers Safety Association (ABSA) for the
         repair and alteration of pressure equipment. With experience ranging
         from field-level <strong>QA/QC</strong> to high-level asset integrity
-        management and strategic planning, I've developed strong skills in
+        management and strategic planning, I&#39;ve developed strong skills in
         ensuring both the compliance and performance of pressure systems within
-        the energy sector. As a hands-on professional, I've also worked closely
-        with fabrication processes and have experience in welding using various
-        processes, supporting my comprehensive understanding of the technical
-        aspects of my field.
+        the energy sector. As a hands-on professional, I&#39;ve also worked
+        closely with fabrication processes and have experience in welding using
+        various processes, supporting my comprehensive understanding of the
+        technical aspects of my field.
       </p>
       <p className='text-gray-700 my-5'>
         My passion for web development blossomed after mastering the

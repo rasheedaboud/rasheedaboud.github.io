@@ -7,7 +7,7 @@ import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { usePageContext } from "../../../renderer/usePageContext";
 import { useState } from "react";
 
-const CodeCopyBtn = ({ children }: { children: any }) => {
+const CodeCopyBtn = ({ children }: { children: React.ReactElement }) => {
   const [copyOk, setCopyOk] = useState(false);
   const icon = copyOk ? "fa-square-check" : "fa-copy";
   const copy = copyOk ? "Copied" : "Copy";
@@ -21,7 +21,7 @@ const CodeCopyBtn = ({ children }: { children: any }) => {
   };
 
   return (
-    <div className='absolute -top-1  right-5 h-10 w-10 m-5'>
+    <div className='absolute -top-1  right-7 h-10 w-10 m-5'>
       <button className={"btn btn-xs btn-active"} onClick={handleClick}>
         <span className=''>
           <i className={`fa-solid ${icon}`}> {copy}</i>
@@ -31,7 +31,7 @@ const CodeCopyBtn = ({ children }: { children: any }) => {
   );
 };
 
-const Pre = ({ node, children }: { node: any; children: any }) => (
+const Pre = ({ children }: { children: any }) => (
   <pre className='mb-3 relative box-shadow shadow-2xl'>
     <CodeCopyBtn>{children}</CodeCopyBtn>
     {children}
@@ -53,21 +53,21 @@ function Page() {
                 {data.title}
               </h1>
               <Markdown
-                children={data.markdown}
                 remarkPlugins={[remarkGfm]}
                 components={{
                   pre: Pre,
                   code(props) {
-                    const { children, className, node, ...rest } = props;
+                    const { children, className, ...rest } = props;
                     const match = /language-(\w+)/.exec(className || "");
                     return match ? (
                       <SyntaxHighlighter
                         PreTag='div'
                         style={vscDarkPlus}
-                        children={String(children).replace(/\n$/, "")}
                         language={match[1]}
                         showInlineLineNumbers={true}
-                      />
+                      >
+                        {String(children).replace(/\n$/, "")}
+                      </SyntaxHighlighter>
                     ) : (
                       <code {...rest} className={className}>
                         {children}
@@ -75,7 +75,9 @@ function Page() {
                     );
                   },
                 }}
-              />
+              >
+                {data.markdown}
+              </Markdown>
               <div className='my-5 py-5'>
                 <a className='btn btn-neutral' href='/blogs'>
                   Go Back

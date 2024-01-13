@@ -2,7 +2,6 @@ import { useTableStorage } from "./useTableStorage";
 import "./Page.css";
 import { useEffect, useState } from "react";
 import { Blog } from "../../types/Blog";
-import { useMediaQuery } from "react-responsive";
 import { BlogCard } from "./BlogCard";
 export { Page };
 
@@ -84,7 +83,7 @@ function Page() {
               id='button-addon1'
               data-te-ripple-init
               data-te-ripple-color='light'
-              onClick={(evt) => setTitle("")}
+              onClick={() => setTitle("")}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -105,6 +104,7 @@ function Page() {
               ? tags.map((tag) => {
                   return (
                     <button
+                      key={tag}
                       className='badge badge-primary badge-lg mx-1'
                       onClick={() => removeTag(tag)}
                     >
