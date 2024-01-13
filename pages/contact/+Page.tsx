@@ -52,7 +52,7 @@ function Page() {
             {({ isSubmitting }) => (
               <Form>
                 <Field name={"name"}>
-                  {({ field, meta, form }: FieldProps) => (
+                  {({ field, meta }: FieldProps) => (
                     <>
                       <label className='form-control w-full '>
                         <div className='label'>
