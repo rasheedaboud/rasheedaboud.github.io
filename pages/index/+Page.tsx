@@ -1,9 +1,7 @@
 import { Banner } from "./Banner";
 import { GetinTouch } from "./GetinTouch";
 import "./index.css";
-
 import Workingathome from "./workingathome.webp";
-import FelizSyncfusion from "./fsharp_syncfusion.webp";
 
 export { Page };
 
@@ -63,7 +61,7 @@ function Page() {
                 className='object-cover'
                 alt='man working at home looking to book a trip'
                 src={Workingathome}
-              ></img>
+              />
               <figcaption>
                 <a href='https://www.freepik.com/free-vector/man-going-trip-booking-tour-online-guy-sitting-front-computer-table-looking-voyage-summer-vacation_24758680.htm#page=2&query=person%20working%20computer&position=7&from_view=keyword&track=ais&uuid=5c0d4a41-ce76-45d5-b8f7-edb57c64ddae'>
                   Image by studio4rt
@@ -92,6 +90,30 @@ function Page() {
             >
               <path d='M6 9l6 6 6-6' />
             </svg>
+          </div>
+        </div>
+
+        {/* API 510 Report Generator*/}
+        <div className='card card-side bg-base-100 shadow-xl my-5 mb-5 '>
+          <div className='card-body'>
+            <h2 className='card-title uppercase'>API 510 Report Generator!</h2>
+            <p className='text-gray-400'>
+              This app is an example of how the pressure equipment industry can
+              leverage LLM (Large Language Models) AI to help us write reports
+              much more efficiently. This example uses a dynamic checklist for
+              input to the report. However we dont need to stop there! ARMM
+              SERVICES also has the ability to extract information from paper
+              forms and feed the data through our generative software.
+            </p>
+            <div className='card-actions justify-end'>
+              <a
+                aria-label='Learn More'
+                href='https://witty-desert-03f45541e.2.azurestaticapps.net/'
+                className='btn btn-primary'
+              >
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
         {/* Feliz.Syncfusion */}
