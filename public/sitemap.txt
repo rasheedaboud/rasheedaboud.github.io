@@ -1,8 +1,0 @@
-https://rasheedaboud.github.io/
-https://rasheedaboud.github.io/about/
-https://rasheedaboud.github.io/blogs/
-https://rasheedaboud.github.io/blog/part-1-building-a-react-app-using-fable-and-feliz/
-https://rasheedaboud.github.io/blog/part-2-feliz-environment-variables/
-https://rasheedaboud.github.io/blog/part-3-building-ui-with-feliz.daisyui/
-https://rasheedaboud.github.io/blog/part-4-state-management-in-feliz/
-https://rasheedaboud.github.io/blog/part-5-using-fetch-apis-in-fable/
