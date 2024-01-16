@@ -84,7 +84,10 @@ export async function readBlogs() {
     return [];
   }
 }
-export async function readBlog(rowKey: string): Promise<Blog | null> {
+export async function readBlog(
+  rowKey: string,
+  server: boolean
+): Promise<Blog | null> {
   try {
     const response = (await client.getEntity(
       "blogs",
@@ -92,7 +95,7 @@ export async function readBlog(rowKey: string): Promise<Blog | null> {
     )) as unknown as Blog;
 
     if (response) {
-      const markdown = await getBlob({ title: response.title, server: true });
+      const markdown = await getBlob({ title: response.title, server: server });
       return markdown ? { ...response, markdown: markdown } : null;
     }
     throw Error(`no blob found with title:${rowKey}`);

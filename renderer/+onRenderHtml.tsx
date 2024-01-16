@@ -23,7 +23,6 @@ const onRenderHtml: OnRenderHtmlAsync = async (
 
   // See https://vike.dev/head
   const documentProps = pageContext.documentProps;
-  console.log(JSON.stringify(pageContext?.documentProps));
   const title = (documentProps && documentProps.title) || "Rasheed Aboud";
   const desc =
     (documentProps && documentProps.description) ||

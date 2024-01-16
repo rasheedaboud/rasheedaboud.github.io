@@ -1,7 +1,7 @@
 import { Blog } from "../../../types/Blog";
 import { Tag } from "../../blogs/Tag";
 
-export const BlogDetailsMobile = (blog: Blog) => {
+export const BlogDetails = (blog: Blog) => {
   return (
     <div className='grid-rows-3 grid-flow-col'>
       <div className='flex justify-center items-center'>

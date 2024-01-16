@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { navigate } from "vike/client/router";
 import { readBlog } from "../../../types/AzureStorage";
 import { Blog } from "../../../types/Blog";
 
@@ -9,7 +8,7 @@ export const useBlobStorage = ({ title }: { title: string | undefined }) => {
   useEffect(() => {
     const loadData = async () => {
       if (title) {
-        const data = await readBlog(title);
+        const data = await readBlog(title, false);
         // if (!data) {
         //   navigate("/blogs");
         // }

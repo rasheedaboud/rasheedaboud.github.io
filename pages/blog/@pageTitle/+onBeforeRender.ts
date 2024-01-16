@@ -5,7 +5,7 @@ import { readBlog } from "../../../types/AzureStorage";
 
 async function onBeforeRender(pageContext: PageContextClient) {
   console.log(pageContext.routeParams?.pageTitle);
-  const blog = await readBlog(pageContext.routeParams?.pageTitle ?? "");
+  const blog = await readBlog(pageContext.routeParams?.pageTitle ?? "", true);
 
   return {
     pageContext: {
