@@ -1,6 +1,5 @@
-import { useTableStorage } from "./useTableStorage";
 import "./Page.css";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Blog } from "../../types/Blog";
 import { BlogCard } from "./BlogCard";
 import { usePageContext } from "../../renderer/usePageContext";
@@ -25,7 +24,10 @@ const filterByTitle = (title: string, blogs: Blog[] | undefined) => {
 function Page() {
   const pageContext = usePageContext();
 
-  const blogs = (pageContext.pageProps?.blogs as unknown as Blog[]) ?? [];
+  const blogs = useMemo(
+    () => (pageContext.pageProps?.blogs as unknown as Blog[]) ?? [],
+    []
+  );
 
   const [data, setData] = useState(blogs);
   const [tags, setTags] = useState<string[]>();

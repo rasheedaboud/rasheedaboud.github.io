@@ -3,6 +3,7 @@ export default onBeforeRender;
 import type { PageContextClient } from "vike/types";
 import { readBlogs } from "../../types/AzureStorage";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function onBeforeRender(pageContext: PageContextClient) {
   const blogs = await readBlogs();
 
