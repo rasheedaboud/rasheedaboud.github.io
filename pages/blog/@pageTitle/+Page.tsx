@@ -1,11 +1,10 @@
-import { useBlobStorage } from "./useBlobStorage";
 import "./Page.css";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { usePageContext } from "../../../renderer/usePageContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Blog } from "../../../types/Blog";
 
 const CodeCopyBtn = ({ children }: { children: React.ReactElement }) => {
@@ -39,7 +38,7 @@ const Pre = ({ children }: { children: any }) => (
   </pre>
 );
 
-export const Tag = ({ tag }: { tag: string }) => {
+const Tag = ({ tag }: { tag: string }) => {
   return (
     <button
       key={tag}
@@ -86,17 +85,16 @@ const BlogDetailsMobile = (blog: Blog) => {
 export { Page };
 function Page() {
   const pageContext = usePageContext();
-  const title = pageContext.routeParams?.pageTitle;
-  const data = useBlobStorage({ title: title });
+  const data = pageContext.pageProps?.blog as Blog;
 
-  useEffect(() => {
-    document.title = data?.title ?? "Rasheed Aboud";
-    const description = document.getElementsByName("description")[0];
-    description.setAttribute(
-      "content",
-      data?.description ?? "Welcome to my personal site."
-    );
-  });
+  // useEffect(() => {
+  //   document.title = data?.title ?? "Rasheed Aboud";
+  //   const description = document.getElementsByName("description")[0];
+  //   description.setAttribute(
+  //     "content",
+  //     data?.description ?? "Welcome to my personal site."
+  //   );
+  // });
 
   return (
     <div className='min-h-svh sm:px-10 md:px-24 lg:px-48'>

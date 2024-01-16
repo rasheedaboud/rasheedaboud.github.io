@@ -5,10 +5,10 @@ import ReactDOMServer from "react-dom/server";
 import { PageShell } from "./PageShell";
 import { escapeInject, dangerouslySkipEscape } from "vike/server";
 import logoUrl from "./favicon.ico";
-import type { OnRenderHtmlAsync } from "vike/types";
+import type { OnRenderHtmlAsync, PageContextServer } from "vike/types";
 
 const onRenderHtml: OnRenderHtmlAsync = async (
-  pageContext
+  pageContext: PageContextServer
 ): ReturnType<OnRenderHtmlAsync> => {
   const { Page, pageProps } = pageContext;
   // This onRenderHtml() hook only supports SSR, see https://vike.dev/render-modes for how to modify
@@ -22,7 +22,8 @@ const onRenderHtml: OnRenderHtmlAsync = async (
   );
 
   // See https://vike.dev/head
-  const { documentProps } = pageContext.exports;
+  const documentProps = pageContext.documentProps;
+  console.log(JSON.stringify(pageContext?.documentProps));
   const title = (documentProps && documentProps.title) || "Rasheed Aboud";
   const desc =
     (documentProps && documentProps.description) ||

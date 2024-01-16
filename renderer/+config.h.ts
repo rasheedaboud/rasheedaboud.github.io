@@ -8,5 +8,5 @@ export default {
   // See https://vike.dev/data-fetching
   //clientRouting: true,
   hydrationCanBeAborted: true,
-  passToClient: ["pageProps", "urlPathname", "routeParams"],
+  passToClient: ["pageProps", "urlPathname", "routeParams", "documentProps"],
 } satisfies Config;
