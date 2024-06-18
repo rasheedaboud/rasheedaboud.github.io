@@ -1,6 +1,6 @@
 export { onBeforePrerenderStart };
 import { readBlogs } from "../../../types/AzureStorage";
-//bump
+//fix missing thumnail
 async function onBeforePrerenderStart() {
   const blogs = (await readBlogs()) ?? [];
   const blogPageURLs = blogs.map(
